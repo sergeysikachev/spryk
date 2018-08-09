@@ -7,6 +7,7 @@
 
 namespace Spryker\Spryk\Model\Spryk\Builder;
 
+use Spryker\Spryk\Model\Spryk\Builder\Constant\ConstantSpryk;
 use Spryker\Spryk\Model\Spryk\Builder\Method\MethodSpryk;
 use Spryker\Spryk\Model\Spryk\Builder\Navigation\NavigationSpryk;
 use Spryker\Spryk\Model\Spryk\Builder\Structure\StructureSpryk;
@@ -50,6 +51,7 @@ class SprykBuilderFactory
             $this->createUpdateYmlSpryk(),
             $this->createMethodSpryk(),
             $this->createNavigationSpryk(),
+            $this->createConstantSpryk(),
         ];
     }
 
@@ -91,6 +93,16 @@ class SprykBuilderFactory
     public function createMethodSpryk(): SprykBuilderInterface
     {
         return new MethodSpryk(
+            $this->createTemplateRenderer()
+        );
+    }
+
+    /**
+     * @return \Spryker\Spryk\Model\Spryk\Builder\SprykBuilderInterface
+     */
+    public function createConstantSpryk(): SprykBuilderInterface
+    {
+        return new ConstantSpryk(
             $this->createTemplateRenderer()
         );
     }

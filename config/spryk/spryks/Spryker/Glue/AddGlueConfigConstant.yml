@@ -1,0 +1,27 @@
+spryk: constant
+description: "Adds a new *module*Config constant to the Glue application."
+
+arguments:
+  module: ~
+
+  organization:
+    default: Spryker
+
+  template:
+    value: Glue/GlueConfigConstant.php.twig
+
+  resourceName: ~
+
+  constantName:
+    callbackOnly: true
+    callback: GlueResourceConstantNameCallback
+
+  constantValue:
+    callbackOnly: true
+    callback: GlueResourceConstantValueCallback
+
+  target:
+    value: "{{ organization }}\\Glue\\{{ module }}\\{{ module }}Config"
+
+preSpryks:
+  - AddGlueConfig

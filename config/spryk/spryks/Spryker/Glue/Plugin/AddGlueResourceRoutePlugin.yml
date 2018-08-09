@@ -1,0 +1,38 @@
+spryk: template
+description: "Adds a resource plugin to Glue module"
+
+application: Glue
+
+priority: 1
+
+arguments:
+  module: ~
+
+  organization:
+    default: Spryker
+
+  resourceName: ~
+
+  resourceConstantName:
+    callbackOnly: true
+    callback: GlueResourceConstantNameCallback
+
+  controllerRoute:
+    callbackOnly: true
+    callback: GlueResourceControllerRouteCallback
+
+  #requestMethods: ~
+
+  template:
+    value: Glue/GlueResourceRoutePlugin.php.twig
+
+  targetFilename:
+    callbackOnly: true
+    callback: GlueResourcePluginCallback
+
+  targetPath:
+    default: "{{ module }}/src/{{ organization }}/Glue/{{ module }}/Plugin/"
+
+preSpryks:
+  - CreateSprykerModule
+  - AddGlueConfigConstant

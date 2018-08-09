@@ -1,0 +1,33 @@
+spryk: method
+description: "Adds a new method to the *module*Factory to the Modules root."
+
+arguments:
+
+  module: ~
+
+  organization:
+    default: Spryker
+
+  subDirectory:
+    isOptional: true
+
+  className: ~
+
+  method:
+    callbackOnly: true
+    #todo: change callback
+    callback: ZedBusinessFactoryMethodNameCallback
+
+  dependencyMethods:
+    isMultiple: true
+    isOptional: true
+
+  template:
+    value: Glue/MethodBusinessFactory.php.twig
+
+  target:
+    value: "{{ organization }}\\Glue\\{{ module }}\\{{ module }}Factory"
+
+preSpryks:
+  - AddGlueFactory
+

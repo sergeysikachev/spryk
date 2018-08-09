@@ -37,6 +37,10 @@ class CallbackFactory
             $this->createZedPresentationTwigFilterActionCallback(),
             $this->createZedTestMethodNameCallback(),
             $this->createClassNameShortCallback(),
+            $this->createGluResourcePluginCallback(),
+            $this->createGlueResourceConstantNameCallback(),
+            $this->createGlueResourceConstantValueCallback(),
+            $this->createGlueResourceControllerRouteCallback(),
         ]);
     }
 
@@ -94,5 +98,37 @@ class CallbackFactory
     public function createClassNameShortCallback(): CallbackInterface
     {
         return new ClassNameShortCallback();
+    }
+
+    /**
+     * @return \Spryker\Spryk\Model\Spryk\Definition\Argument\Callback\CallbackInterface
+     */
+    public function createGluResourcePluginCallback(): CallbackInterface
+    {
+        return new GlueResourcePluginCallback();
+    }
+
+    /**
+     * @return \Spryker\Spryk\Model\Spryk\Definition\Argument\Callback\CallbackInterface
+     */
+    public function createGlueResourceConstantNameCallback(): CallbackInterface
+    {
+        return new GlueResourceConstantNameCallback();
+    }
+
+    /**
+     * @return \Spryker\Spryk\Model\Spryk\Definition\Argument\Callback\CallbackInterface
+     */
+    public function createGlueResourceConstantValueCallback(): CallbackInterface
+    {
+        return new GlueResourceConstantValueCallback();
+    }
+
+    /**
+     * @return \Spryker\Spryk\Model\Spryk\Definition\Argument\Callback\CallbackInterface
+     */
+    public function createGlueResourceControllerRouteCallback(): CallbackInterface
+    {
+        return new GlueResourceControllerRouteCallback();
     }
 }

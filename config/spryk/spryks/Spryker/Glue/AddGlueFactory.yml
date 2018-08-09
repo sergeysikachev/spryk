@@ -1,0 +1,21 @@
+spryk: template
+description: "Adds a new *Module*GlueFactory to the Glue application."
+
+arguments:
+  module: ~
+
+  organization:
+    default: Spryker
+
+  template:
+    value: Glue/GlueFactory.php.twig
+
+  targetFilename:
+    value: "{{ module }}Factory.php"
+
+  targetPath:
+    default: "{{ module }}/src/{{ organization }}/Glue/{{ module }}/"
+
+preSpryks:
+  - CreateSprykerModule
+
